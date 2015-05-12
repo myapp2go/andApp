@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alignmentMode="alignBounds"
+    android:columnCount="2"
+    android:columnOrderPreserved="false"
+    android:useDefaultMargins="true" >
+
+    <TextView
+        android:layout_column="0"
+        android:layout_row="0"
+        android:layout_gravity="right"
+        android:text="@string/agi1"
+        android:textSize="32dip" />
+
+    <EditText 
+        android:id="@+id/agi1"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:text="22000"
+    	android:hint="@string/agi1" />
+
+    <TextView
+        android:layout_column="0"
+        android:layout_row="1"
+        android:layout_gravity="right"
+        android:text="@string/deduction1"
+        android:textSize="32dip" />
+
+    <EditText 
+        android:id="@+id/deduction1"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:text="20300"
+    	android:hint="@string/deduction1" />
+    
+    <TextView
+        android:layout_column="0"
+        android:layout_row="2"
+        android:layout_gravity="right"
+        android:text="@string/agi2"
+        android:textSize="32dip" />
+
+    <EditText 
+        android:id="@+id/agi2"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:text="92000"
+    	android:hint="@string/agi2" />
+    
+    <TextView
+        android:layout_column="0"
+        android:layout_row="3"
+        android:layout_gravity="right"
+        android:text="@string/deduction2"
+        android:textSize="32dip" />
+
+    <EditText 
+        android:id="@+id/deduction2"
+        android:layout_column="1"
+        android:layout_row="3"
+        android:text="30300"
+    	android:hint="@string/deduction2" />
+    
+    <Button
+        android:layout_column="0"
+        android:layout_row="4"
+        android:onClick="startChart"
+        android:text="@string/button_taxchart" />
+      
+    <Button
+        android:layout_column="0"
+        android:layout_row="5"
+        android:onClick="startTTS"
+        android:text="TTS" />
+    
+</GridLayout>
