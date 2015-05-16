@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <EditText
+    	android:id="@+id/ttstext"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="你好，我能说中文">
+    </EditText>
+	<Button
+		android:id="@+id/ttsbtn"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="我说"
+		android:enabled="true">
+	</Button>
+</LinearLayout>
