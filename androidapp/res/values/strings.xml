@@ -11,5 +11,12 @@
 	<string name="agi2">AGI</string>
 	<string name="deduction1">PC Deduction</string>
 	<string name="deduction2">Deduction</string>
-	
+	<string name="tts">TTS</string>
+	<string name="ttsExt">TTSExt</string>
+
+    <string name="Title">Website Title</string>
+    <string name="Description">Website Description</string>
+    <string name="Logo">Website Logo</string>
+    <string name="jsoup">JSoup</string>
+        		
 </resources>

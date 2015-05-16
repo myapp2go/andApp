@@ -74,5 +74,17 @@
         android:layout_row="5"
         android:onClick="startTTS"
         android:text="TTS" />
-    
+ 
+    <Button
+        android:layout_column="0"
+        android:layout_row="6"
+        android:onClick="startTTSExt"
+        android:text="TNIhao" />
+ 
+    <Button
+        android:layout_column="0"
+        android:layout_row="7"
+        android:onClick="startJSoup"
+        android:text="JSoup" />
+            
 </GridLayout>

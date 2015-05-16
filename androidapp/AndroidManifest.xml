@@ -29,6 +29,29 @@
             	android:name="android.support.PARENT_ACTIVITY"
             	android:value="com.pc.pcand.MainActivity" />
     	</activity>
+    	<activity
+        	android:name="com.pc.androidapp.PcTTS"
+        	android:label="@string/tts" >
+        	<meta-data
+            	android:name="android.support.PARENT_ACTIVITY"
+            	android:value="com.pc.pcand.MainActivity" />
+    	</activity>
+    	<activity
+        	android:name="com.pc.androidapp.NiHaoTTS"
+        	android:label="@string/ttsExt" >
+        	<meta-data
+            	android:name="android.support.PARENT_ACTIVITY"
+            	android:value="com.pc.pcand.MainActivity" />
+    	</activity>
+    	<activity
+        	android:name="com.pc.androidapp.JSoupMainActivity"
+        	android:label="@string/jsoup" >
+        	<meta-data
+            	android:name="android.support.PARENT_ACTIVITY"
+            	android:value="com.pc.pcand.MainActivity" />
+    	</activity>    	
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    
 </manifest>
