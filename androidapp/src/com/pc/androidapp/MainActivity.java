@@ -47,6 +47,20 @@ public class MainActivity extends Activity {
 		
 		startActivity(ttsIntent);
 	}
+
+	public void startTTSExt(View view) {
+	    // Do something in response to button
+		Intent ttsIntent = new Intent(this, NiHaoTTS.class);
+		
+		startActivity(ttsIntent);
+	}
+
+	public void startJSoup(View view) {
+	    // Do something in response to button
+		Intent ttsIntent = new Intent(this, JSoupMainActivity.class);
+		
+		startActivity(ttsIntent);
+	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
