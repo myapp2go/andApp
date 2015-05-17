@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 	public void startChart(View view) {
 	    // Do something in response to button
 		Intent taxIntent = new Intent(this, TaxActivity.class);
+		/*
 		EditText editText = (EditText) findViewById(R.id.agi1);
 		String agi1 = editText.getText().toString();
 //		taxIntent.putExtra(EXTRA_MESSAGE, message);
@@ -29,10 +30,25 @@ public class MainActivity extends Activity {
 		Editor editor = pref.edit();
 		editor.putString("agi1", agi1);
 		editor.commit();
+		*/
+		
+		ShareTool.sharePut(findViewById(R.id.agi1), "agi1");
+		ShareTool.sharePut(findViewById(R.id.url), "url");
 		
 		startActivity(taxIntent);
 	}
 
+	private void share(int id, String name) {
+		EditText editText = (EditText) findViewById(id);
+		String text = editText.getText().toString();
+//		taxIntent.putExtra(EXTRA_MESSAGE, message);
+		
+		SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE); 
+		Editor editor = pref.edit();
+		editor.putString(name, text);
+		editor.commit();
+	}
+	
 	public void startTTS(View view) {
 	    // Do something in response to button
 		Intent ttsIntent = new Intent(this, PcTTS.class);
@@ -56,6 +72,8 @@ public class MainActivity extends Activity {
 	}
 
 	public void startJSoup(View view) {
+		ShareTool.sharePut(findViewById(R.id.url), "url");
+		
 	    // Do something in response to button
 		Intent ttsIntent = new Intent(this, JSoupMainActivity.class);
 		
