@@ -25,7 +25,7 @@ public class JSoupMainActivity extends Activity {
  
 	// URL Address
 //	String url = "http://www.androidbegin.com";
-	String url = "http://www.yahoo.com";
+	String url = "http://finance.yahoo.com/";
 
 	ProgressDialog mProgressDialog;
 	private TextToSpeech myTts;
@@ -145,7 +145,7 @@ public class JSoupMainActivity extends Activity {
 	 
 		// Description AsyncTask
 	private class Description extends AsyncTask<Void, Void, Void> {
-			String desc;
+			String desc = "";
 	 
 			@Override
 			protected void onPreExecute() {
@@ -161,13 +161,16 @@ public class JSoupMainActivity extends Activity {
 			protected Void doInBackground(Void... params) {
 				try {
 					// Connect to the web site
+					url = ShareTool.shareGet(getApplicationContext(), "url");
+					
 					Document document = Jsoup.connect(url).get();
 					// Using Elements to get the Meta data
 					Elements description = document
 							.select("p");
 					// Locate the content attribute
 					for (Element p : description) {
-						desc = p.text();
+//						desc.append(p.text());
+						desc += p.text();
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
