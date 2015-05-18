@@ -68,13 +68,17 @@ public class JSoupTTSActivity extends JSoupMainActivity implements OnInitListene
 
 				Document document = Jsoup.connect(url).get();
 				// Using Elements to get the Meta data
-				Elements description = document.select("p");
+//				Elements description = document.select("p");
+				Elements description = document.getAllElements();
+
 				// Locate the content attribute
+				int i = 0;
 				for (Element p : description) {
 					// desc.append(p.text());
 					desc += p.text();
+					i++;
+					if (i > 0) break;
 				}
-				
 				tts.speak(desc, TextToSpeech.QUEUE_ADD, null);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -98,7 +102,7 @@ public class JSoupTTSActivity extends JSoupMainActivity implements OnInitListene
 				// 使用新的構造方法，TTS的引擎的包名如果為null，則用的是系統引擎
 				tts = new TextToSpeech(this, this);// 初始化TextToSpeech對象
 				try {
-					tts.setEngineByPackageName("com.svox.pico");// 指定使用的TTS引擎
+//					tts.setEngineByPackageName("com.svox.pico");// 指定使用的TTS引擎
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
