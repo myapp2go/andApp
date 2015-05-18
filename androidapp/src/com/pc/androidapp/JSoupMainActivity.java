@@ -49,7 +49,7 @@ public class JSoupMainActivity extends Activity {
 				new Title().execute();
 			}
 		});
- 
+/* 
 		// Capture button click
 		descbutton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
@@ -57,7 +57,7 @@ public class JSoupMainActivity extends Activity {
 				new Description().execute();
 			}
 		});
- 
+*/ 
 		// Capture button click
 		logobutton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {

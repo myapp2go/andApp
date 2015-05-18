@@ -18,5 +18,6 @@
     <string name="Description">Website Description</string>
     <string name="Logo">Website Logo</string>
     <string name="jsoup">JSoup</string>
+    <string name="url">URL</string>
         		
 </resources>

@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
 		ShareTool.sharePut(findViewById(R.id.url), "url");
 		
 	    // Do something in response to button
-		Intent ttsIntent = new Intent(this, JSoupMainActivity.class);
+		Intent ttsIntent = new Intent(this, JSoupTTSActivity.class);
 		
 		startActivity(ttsIntent);
 	}
