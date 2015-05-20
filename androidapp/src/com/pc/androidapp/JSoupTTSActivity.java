@@ -72,13 +72,21 @@ public class JSoupTTSActivity extends JSoupMainActivity implements OnInitListene
 				Elements description = document.getAllElements();
 
 				// Locate the content attribute
+				int maxLen = 3600;
 				int i = 0;
 				for (Element p : description) {
 					// desc.append(p.text());
 					desc += p.text();
-					i++;
-					if (i > 0) break;
+					if (desc.length() > maxLen) {
+//						tts.speak(desc, TextToSpeech.QUEUE_ADD, null);
+						i += desc.length();
+						desc = "";
+					}
+//					i++;
+//					if (i > 0) break;
 				}
+				i += desc.length();
+				System.out.println("**************************************LEN " + i);
 				tts.speak(desc, TextToSpeech.QUEUE_ADD, null);
 			} catch (IOException e) {
 				e.printStackTrace();
