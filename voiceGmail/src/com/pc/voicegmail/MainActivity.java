@@ -2,25 +2,31 @@ package com.pc.voicegmail;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnInitListener {
 
+	public TextToSpeech tts;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		tts = new TextToSpeech(this,  this);
 		
 		final Button sendMail = (Button) this.findViewById(R.id.readMail);
 		sendMail.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				String myEmail = ((TextView) findViewById(R.id.myEmail)).getText().toString();
 				String myPassword = ((TextView) findViewById(R.id.myPassword)).getText().toString();
-				new ReadMailTask(MainActivity.this).execute(myEmail, myPassword);
+				new ReadMailTask(MainActivity.this).execute(tts, myEmail, myPassword);
 			}
 		});
 	}
@@ -42,5 +48,11 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onInit(int status) {
+		// TODO Auto-generated method stub
+		
 	}
 }

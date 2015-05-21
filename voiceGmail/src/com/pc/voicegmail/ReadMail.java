@@ -14,6 +14,8 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Store;
 
+import android.speech.tts.TextToSpeech;
+
 import com.sun.mail.pop3.POP3Store;
 
 public class ReadMail {
@@ -27,7 +29,7 @@ public class ReadMail {
 	private static String imapHost = "imap.gmail.com";
 	private static String imapStoreType = "imaps";
 	
-	public static void readEmailByIMAP(String mailAccount, String password) {	
+	public static void readEmailByIMAP(TextToSpeech tts, String mailAccount, String password) {	
 		user = mailAccount;
 		pwd = password;
 		
@@ -44,7 +46,7 @@ public class ReadMail {
 			emailFolder = emailStore.getFolder("INBOX");
 			emailFolder.open(Folder.READ_ONLY);
 
-			readMessage(emailFolder);
+			readMessage(tts, emailFolder);
 			
 //			readMessage();
 			
@@ -78,11 +80,11 @@ public class ReadMail {
 		System.out.println("************************** PWD " + mailAccount + " " + password);
 	}
 
-	private static void readMessage(Folder emailFolder) throws MessagingException,
+	private static void readMessage(TextToSpeech tts, Folder emailFolder) throws MessagingException,
 			IOException {
 		Message[] messages = emailFolder.getMessages();
 		for (int i = 0; i < messages.length; i++) {
-			if (i == 18) {
+			
 			Message message = messages[i];
 			System.out.println("----------------------------------");
 			System.out.println("Email Number " + (i + 1));
@@ -90,8 +92,11 @@ public class ReadMail {
 			System.out.println("From: " + message.getFrom()[0]);
 			System.out.println("Text: " + message.getContent().toString());
 
+			tts.speak("mail number :" + (i + 1) + message.getSubject(), TextToSpeech.QUEUE_ADD, null);
+			
 			Object msgContent = message.getContent();
 			String content = "";
+			/*
 			if (msgContent instanceof Multipart) {
 				Multipart multipart = (Multipart) msgContent;
 				System.out.println("BodyPart" + "MultiPartCount: " + multipart.getCount());
@@ -101,6 +106,7 @@ public class ReadMail {
 
 					String disposition = bodyPart.getDisposition();
 
+					if (j == 0) {
 					if (disposition != null
 							&& (disposition.equalsIgnoreCase("ATTACHMENT"))) {
 						System.out.println("Mail have some attachment");
@@ -111,9 +117,10 @@ public class ReadMail {
 						content = bodyPart.getContent().toString();
 						System.out.println("getText " + content);
 					}
+					}
 				}
 			}
-			}
+			*/
 		}
 	}
 	

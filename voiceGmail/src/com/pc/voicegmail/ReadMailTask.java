@@ -4,6 +4,7 @@ package com.pc.voicegmail;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.speech.tts.TextToSpeech;
 
 public class ReadMailTask extends AsyncTask {
 
@@ -25,7 +26,7 @@ public class ReadMailTask extends AsyncTask {
 	@Override
 	protected Object doInBackground(Object... params) {
 		// TODO Auto-generated method stub
-		ReadMail.readEmailByIMAP(params[0].toString(), params[1].toString());
+		ReadMail.readEmailByIMAP((TextToSpeech)params[0], params[1].toString(), params[2].toString());
 		return null;
 	}
 
