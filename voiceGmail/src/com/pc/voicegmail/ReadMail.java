@@ -51,7 +51,9 @@ public class ReadMail {
 //			readMessage();
 			
 			emailFolder.close(false);
+			emailFolder = null;
 			emailStore.close();
+			emailStore = null;
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {
@@ -83,7 +85,7 @@ public class ReadMail {
 	private static void readMessage(TextToSpeech tts, Folder emailFolder) throws MessagingException,
 			IOException {
 		Message[] messages = emailFolder.getMessages();
-		for (int i = 0; i < messages.length; i++) {
+		for (int i = 0; i < 10; i++) {
 			
 			Message message = messages[i];
 			System.out.println("----------------------------------");
@@ -93,10 +95,10 @@ public class ReadMail {
 			System.out.println("Text: " + message.getContent().toString());
 
 			tts.speak("mail number :" + (i + 1) + message.getSubject(), TextToSpeech.QUEUE_ADD, null);
-			
+/*			
 			Object msgContent = message.getContent();
 			String content = "";
-			/*
+			
 			if (msgContent instanceof Multipart) {
 				Multipart multipart = (Multipart) msgContent;
 				System.out.println("BodyPart" + "MultiPartCount: " + multipart.getCount());
