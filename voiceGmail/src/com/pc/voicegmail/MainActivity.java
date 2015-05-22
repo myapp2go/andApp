@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnInitListener {
 
+	public static int increment = 10;
+	private static int msgCount = 0;
+	
 	public TextToSpeech tts;
 	
 	@Override
@@ -26,7 +29,7 @@ public class MainActivity extends Activity implements OnInitListener {
 			public void onClick(View v) {
 				String myEmail = ((TextView) findViewById(R.id.myEmail)).getText().toString();
 				String myPassword = ((TextView) findViewById(R.id.myPassword)).getText().toString();
-				new ReadMailTask(MainActivity.this).execute(tts, myEmail, myPassword);
+				new ReadMailTask(MainActivity.this).execute(msgCount, tts, myEmail, myPassword);
 			}
 		});
 	}

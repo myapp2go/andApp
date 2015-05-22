@@ -25,13 +25,18 @@ public class ReadMail {
 	private static String storeType = "pop3s";
 	private static String user;
 	private static String pwd;
+	private static TextToSpeech tts;
 	
 	private static String imapHost = "imap.gmail.com";
 	private static String imapStoreType = "imaps";
 	
-	public static void readEmailByIMAP(TextToSpeech tts, String mailAccount, String password) {	
+	private static Message[] messages;
+	private static int msgLength;
+	
+	public static void readEmailByIMAP(TextToSpeech obj, String mailAccount, String password) {	
 		user = mailAccount;
 		pwd = password;
+		tts = obj;
 		
 		Store emailStore = null;
 		Folder emailFolder = null;
@@ -46,7 +51,9 @@ public class ReadMail {
 			emailFolder = emailStore.getFolder("INBOX");
 			emailFolder.open(Folder.READ_ONLY);
 
-			readMessage(tts, emailFolder);
+			messages = emailFolder.getMessages();
+			msgLength = messages.length;
+			readMessage(0);
 			
 //			readMessage();
 			
@@ -82,10 +89,9 @@ public class ReadMail {
 		System.out.println("************************** PWD " + mailAccount + " " + password);
 	}
 
-	private static void readMessage(TextToSpeech tts, Folder emailFolder) throws MessagingException,
+	private static void readMessage(int count) throws MessagingException,
 			IOException {
-		Message[] messages = emailFolder.getMessages();
-		for (int i = 0; i < 10; i++) {
+		for (int i = count; (i < msgLength) && (i < count+MainActivity.increment); i++) {
 			
 			Message message = messages[i];
 			System.out.println("----------------------------------");

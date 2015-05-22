@@ -26,7 +26,7 @@ public class ReadMailTask extends AsyncTask {
 	@Override
 	protected Object doInBackground(Object... params) {
 		// TODO Auto-generated method stub
-		ReadMail.readEmailByIMAP((TextToSpeech)params[0], params[1].toString(), params[2].toString());
+		ReadMail.readEmailByIMAP((TextToSpeech)params[1], params[2].toString(), params[3].toString());
 		return null;
 	}
 
